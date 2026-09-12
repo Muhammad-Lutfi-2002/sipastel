@@ -1,0 +1,7 @@
+{
+  "name": "SIPASTEL — Custom Apparel & Clothing",
+  "description": "Explore SIPASTEL custom apparel, jerseys and everyday clothing. Create your own design and make it personal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
