@@ -1,0 +1,32 @@
+{
+  "name": "sipastel-apparel-studio",
+  "compatibility_date": "2025-09-01",
+  "main": "./worker/index.ts",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "not_found_handling": "single-page-application"
+  },
+  // Native R2 binding: the Worker reads/writes the bucket directly through
+  // this binding. No Account ID / Access Key ID / Secret Access Key is
+  // ever needed for this to work — Cloudflare authorizes the binding at
+  // the infrastructure level, so no R2 credential exists anywhere in this
+  // codebase or in the deployed frontend.
+  "r2_buckets": [
+    {
+      "binding": "IMAGES_BUCKET",
+      "bucket_name": "sipastel-images"
+    }
+  ],
+  // Plain (non-secret) config. VITE_SUPABASE_URL / VITE_SUPABASE_ANON_KEY
+  // are already safe to expose per the project's own .env.example — the
+  // Worker just reuses the same public project URL + anon key to verify
+  // staff sessions against Supabase Auth. Update ALLOWED_ORIGIN to match
+  // wherever the frontend is actually hosted before deploying.
+  "vars": {
+    "ALLOWED_ORIGIN": "https://sipastel.pages.dev,http://localhost:3000",
+    "MAX_UPLOAD_MB": "8",
+    "SUPABASE_URL": "https://hmhbmymzdmelkzvmwjlm.supabase.co",
+    "SUPABASE_ANON_KEY": "REPLACE_WITH_YOUR_SUPABASE_ANON_KEY"
+  }
+}
