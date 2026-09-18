@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="id" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIPASTEL — Custom Apparel & Clothing</title>
+    <meta name="description" content="Explore SIPASTEL custom apparel, jerseys and everyday clothing. Create your own design and make it yours." />
+    <meta property="og:title" content="SIPASTEL — Custom Apparel & Clothing" />
+    <meta property="og:description" content="Explore SIPASTEL custom apparel, jerseys and everyday clothing. Create your own design and make it yours." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+    <script>
+      // Apply the saved theme (or default to dark) before React mounts and
+      // before first paint, so there is never a flash of the wrong theme.
+      (function () {
+        try {
+          var saved = localStorage.getItem('sipastel-theme');
+          var theme = saved === 'light' || saved === 'dark' ? saved : 'dark';
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="font-sans antialiased selection:bg-accent-wash selection:text-ink">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
