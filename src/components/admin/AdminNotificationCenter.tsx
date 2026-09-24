@@ -172,7 +172,7 @@ export const AdminNotificationCenter: React.FC = () => {
 
       {/* Popover Dropdown */}
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-surface border border-line shadow-[0_12px_40px_rgba(0,0,0,0.35)] rounded-2xl z-50 overflow-hidden animate-modal-content">
+      <div className="fixed left-3 right-3 top-16 sm:absolute sm:left-auto sm:right-0 sm:top-auto sm:mt-2 w-auto sm:w-96 bg-surface border border-line shadow-[0_12px_40px_rgba(0,0,0,0.35)] rounded-2xl z-50 overflow-hidden animate-modal-content">
           {/* Header */}
           <div className="p-3.5 border-b border-line flex items-center justify-between bg-surface">
             <div className="flex items-center gap-2">
@@ -235,7 +235,7 @@ export const AdminNotificationCenter: React.FC = () => {
           </div>
 
           {/* List */}
-          <div className="max-h-84 overflow-y-auto divide-y divide-line">
+         <div className="max-h-[60vh] sm:max-h-84 overflow-y-auto divide-y divide-line">
             {displayedList.length === 0 ? (
               <div className="p-8 text-center text-xs text-muted">
                 Tidak ada notifikasi{filter === 'UNREAD' ? ' yang belum dibaca' : ''}.
