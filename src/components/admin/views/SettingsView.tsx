@@ -416,7 +416,7 @@ export const SettingsView: React.FC = () => {
                 <p className="text-xs font-mono uppercase text-muted mt-2 mb-2">Rekening Transfer (ditampilkan ke customer)</p>
               </div>
 
-              <div className="grid grid-cols-2 gap-2.5">
+             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 <div>
                   <label htmlFor="studio-bank" className={labelClass}>Nama Bank</label>
                   <input id="studio-bank" type="text" maxLength={50} value={bankName} onChange={(e) => setBankName(e.target.value)} placeholder="Contoh: BCA" className={inputClass} />
