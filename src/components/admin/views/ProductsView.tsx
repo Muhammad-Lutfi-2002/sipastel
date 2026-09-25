@@ -553,21 +553,18 @@ export const ProductsView: React.FC = () => {
                   className="w-full px-3 py-2 bg-paper border border-line focus:border-accent-soft rounded-lg text-sm text-ink focus:outline-hidden transition-colors"
                 />
               </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label htmlFor="pf-material" className="block text-xs font-semibold text-heading mb-1.5">Material</label>
-                  <input
-                    id="pf-material"
-                    maxLength={100}
-                    type="text"
-                    value={formValues.material}
-                    onChange={(e) => setFormValues({ ...formValues, material: e.target.value })}
-                    placeholder="Combed 24s"
-                    className="w-full px-3 py-2 bg-paper border border-line focus:border-accent-soft rounded-lg text-sm text-ink focus:outline-hidden transition-colors"
-                  />
-                </div>
-              </div>
+              <div>
+  <label htmlFor="pf-material" className="block text-xs font-semibold text-heading mb-1.5">Material</label>
+  <input
+    id="pf-material"
+    maxLength={100}
+    type="text"
+    value={formValues.material}
+    onChange={(e) => setFormValues({ ...formValues, material: e.target.value })}
+    placeholder="Combed 24s"
+    className="w-full px-3 py-2 bg-paper border border-line focus:border-accent-soft rounded-lg text-sm text-ink focus:outline-hidden transition-colors"
+  />
+</div>
 
               {/* Gambar Produk: upload dari perangkat ATAU tempel URL - keduanya tetap tersedia */}
               <div>
