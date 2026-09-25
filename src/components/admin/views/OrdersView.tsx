@@ -282,13 +282,13 @@ export const OrdersView: React.FC = () => {
           )}
         </div>
 
-        <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-          <select
-            value={paymentFilter}
-            onChange={(e) => setPaymentFilter(e.target.value)}
-            aria-label="Filter status pembayaran"
-            className="px-2.5 py-1.5 bg-paper border border-line rounded-lg text-xs text-body focus:outline-hidden cursor-pointer"
-          >
+<div className="grid grid-cols-2 gap-2 w-full sm:flex sm:w-auto justify-end">
+  <select
+    value={paymentFilter}
+    onChange={(e) => setPaymentFilter(e.target.value)}
+    aria-label="Filter status pembayaran"
+    className="w-full sm:w-auto px-2.5 py-1.5 bg-paper border border-line rounded-lg text-xs text-body focus:outline-hidden cursor-pointer"
+  >
             <option value="ALL">Pembayaran: Semua</option>
             <option value="LUNAS">Lunas</option>
             <option value="DP_DIBAYAR">DP Dibayar</option>
@@ -299,7 +299,7 @@ export const OrdersView: React.FC = () => {
             value={productionFilter}
             onChange={(e) => setProductionFilter(e.target.value)}
             aria-label="Filter tahap produksi"
-            className="px-2.5 py-1.5 bg-paper border border-line rounded-lg text-xs text-body focus:outline-hidden cursor-pointer"
+               className="w-full sm:w-auto px-2.5 py-1.5 bg-paper border border-line rounded-lg text-xs text-body focus:outline-hidden cursor-pointer"
           >
             <option value="ALL">Produksi: Semua</option>
             {PRODUCTION_STATUSES.map((status) => (
