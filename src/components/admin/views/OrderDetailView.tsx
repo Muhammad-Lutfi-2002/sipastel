@@ -693,7 +693,7 @@ export const OrderDetailView: React.FC<OrderDetailViewProps> = ({ orderId }) => 
                   </select>
                 </div>
 
-                <div className="grid grid-cols-2 gap-2">
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <div>
                     <span className="block text-xs font-mono uppercase text-muted mb-1">Pembayaran (Otomatis)</span>
                     <div
