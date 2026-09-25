@@ -314,7 +314,7 @@ export const OrdersView: React.FC = () => {
       {/* Orders Table */}
       <div className="bg-surface border border-line rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
         <div className="overflow-x-auto">
-          <table className="w-full text-left text-sm border-collapse">
+         <table className="w-full text-left text-sm border-collapse whitespace-nowrap">
             <thead>
               <tr className="border-b border-line bg-surface-hover text-muted font-mono text-xs uppercase tracking-wider">
                 <th scope="col" className="py-3 px-4 font-medium">ID Pesanan</th>
