@@ -29,6 +29,7 @@ export type Permission =
 
 export const ROLE_PERMISSIONS: Record<AdminRole, Array<Permission | '*'>> = {
   OWNER: ['*'],
+  ADMIN: ['*'],
   FINANCE: [
     'dashboard:read',
     'orders:read',
@@ -51,6 +52,14 @@ export const ROLE_PERMISSIONS: Record<AdminRole, Array<Permission | '*'>> = {
     'products:read',
     'products:write',
     'settings:read',
+  ],
+  MARKETING: ['settings:read'],
+  INVESTOR: [
+    'dashboard:read',
+    'orders:read',
+    'production:read',
+    'invoices:read',
+    'finance:read',
   ],
 };
 
