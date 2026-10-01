@@ -366,6 +366,7 @@ export interface ProductInput {
   price: number;
   shortDescription?: string;
   material?: string;
+  sizes?: string[];
   /** Convenience for the single cover image; ignored when `images` is given. */
   imageUrl?: string;
   /** Full ordered image list. Use this on edit so extra gallery images are preserved. */
