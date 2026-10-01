@@ -99,7 +99,7 @@ export interface OrderItem {
   image?: string;
 }
 
-export type AdminRole = 'OWNER' | 'FINANCE' | 'PRODUCTION_HEAD';
+export type AdminRole = 'OWNER' | 'ADMIN' | 'FINANCE' | 'PRODUCTION_HEAD' | 'MARKETING' | 'INVESTOR';
 
 export interface AdminUser {
   id: string;
