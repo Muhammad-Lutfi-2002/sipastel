@@ -5,7 +5,7 @@ export interface AuthSession {
   user: AdminUser;
 }
 
-const VALID_ROLES: AdminRole[] = ['OWNER', 'FINANCE', 'PRODUCTION_HEAD'];
+const VALID_ROLES: AdminRole[] = ['OWNER', 'ADMIN', 'FINANCE', 'PRODUCTION_HEAD', 'MARKETING', 'INVESTOR'];
 
 export function isAdminRole(value: unknown): value is AdminRole {
   return typeof value === 'string' && (VALID_ROLES as string[]).includes(value);
