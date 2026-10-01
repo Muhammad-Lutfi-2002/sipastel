@@ -65,10 +65,16 @@ export function formatRoleLabel(role?: string): string {
   switch (role) {
     case 'OWNER':
       return 'Owner';
+    case 'ADMIN':
+      return 'Admin';
     case 'FINANCE':
       return 'Finance';
     case 'PRODUCTION_HEAD':
       return 'Kepala Produksi';
+    case 'MARKETING':
+      return 'Marketing';
+    case 'INVESTOR':
+      return 'Investor';
     default:
       return 'Staf';
   }
