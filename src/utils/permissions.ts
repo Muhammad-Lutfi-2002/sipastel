@@ -53,7 +53,7 @@ export const ROLE_PERMISSIONS: Record<AdminRole, Array<Permission | '*'>> = {
     'products:write',
     'settings:read',
   ],
-  MARKETING: ['settings:read'],
+  MARKETING: ['products:read', 'products:write', 'settings:read'],
   INVESTOR: [
     'dashboard:read',
     'orders:read',
