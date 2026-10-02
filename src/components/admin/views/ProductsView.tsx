@@ -40,6 +40,7 @@ const EMPTY_FORM: ProductInput = {
   price: 0,
   shortDescription: '',
   material: '',
+  sizes: [],
   imageUrl: '',
   inStock: true,
 };
@@ -77,6 +78,7 @@ export const ProductsView: React.FC = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [formValues, setFormValues] = useState<ProductInput>(EMPTY_FORM);
+  const [sizesText, setSizesText] = useState('');
   const [isSavingProduct, setIsSavingProduct] = useState(false);
 
   // Product image: upload from device OR paste a URL - both write to the
@@ -114,6 +116,7 @@ export const ProductsView: React.FC = () => {
   const openCreateModal = () => {
     setEditingProduct(null);
     setFormValues(EMPTY_FORM);
+    setSizesText('');
     setFormErrors({});
     setImageUploadError(null);
     sessionUploadsRef.current = [];
@@ -129,9 +132,11 @@ export const ProductsView: React.FC = () => {
       price: product.price,
       shortDescription: product.shortDescription,
       material: product.material,
+      sizes: product.sizes ?? [],
       imageUrl: product.images?.[0] ?? '',
       inStock: product.inStock,
     });
+    setSizesText((product.sizes ?? []).join(', '));
     setFormErrors({});
     setImageUploadError(null);
     sessionUploadsRef.current = [];
@@ -179,7 +184,8 @@ export const ProductsView: React.FC = () => {
     if (Object.keys(nextErrors).length > 0) return;
 
     setIsSavingProduct(true);
-    const cleanValues: ProductInput = { ...formValues, name, price, imageUrl };
+    const sizes = sizesText.split(',').map((s) => s.trim()).filter(Boolean);
+    const cleanValues: ProductInput = { ...formValues, name, price, imageUrl, sizes };
 
     if (editingProduct) {
       // Keep every other gallery image; only the cover (first) one is edited here.
@@ -553,18 +559,33 @@ export const ProductsView: React.FC = () => {
                   className="w-full px-3 py-2 bg-paper border border-line focus:border-accent-soft rounded-lg text-sm text-ink focus:outline-hidden transition-colors"
                 />
               </div>
-              <div>
-  <label htmlFor="pf-material" className="block text-xs font-semibold text-heading mb-1.5">Material</label>
-  <input
-    id="pf-material"
-    maxLength={100}
-    type="text"
-    value={formValues.material}
-    onChange={(e) => setFormValues({ ...formValues, material: e.target.value })}
-    placeholder="Combed 24s"
-    className="w-full px-3 py-2 bg-paper border border-line focus:border-accent-soft rounded-lg text-sm text-ink focus:outline-hidden transition-colors"
-  />
-</div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label htmlFor="pf-material" className="block text-xs font-semibold text-heading mb-1.5">Material</label>
+                  <input
+                    id="pf-material"
+                    maxLength={100}
+                    type="text"
+                    value={formValues.material}
+                    onChange={(e) => setFormValues({ ...formValues, material: e.target.value })}
+                    placeholder="Combed 24s"
+                    className="w-full px-3 py-2 bg-paper border border-line focus:border-accent-soft rounded-lg text-sm text-ink focus:outline-hidden transition-colors"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="pf-sizes" className="block text-xs font-semibold text-heading mb-1.5">Ukuran / Varian</label>
+                  <input
+                    id="pf-sizes"
+                    type="text"
+                    value={sizesText}
+                    onChange={(e) => setSizesText(e.target.value)}
+                    placeholder="S, M, L, XL"
+                    className="w-full px-3 py-2 bg-paper border border-line focus:border-accent-soft rounded-lg text-sm text-ink focus:outline-hidden transition-colors"
+                  />
+                  <p className="text-xs text-muted mt-1">Pisahkan tiap ukuran dengan koma.</p>
+                </div>
+              </div>
 
               {/* Gambar Produk: upload dari perangkat ATAU tempel URL - keduanya tetap tersedia */}
               <div>
