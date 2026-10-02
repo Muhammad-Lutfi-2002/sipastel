@@ -401,6 +401,7 @@ export async function createStoredProduct(
       price: input.price,
       short_description: input.shortDescription ?? '',
       material: input.material ?? '',
+      sizes: input.sizes ?? [],
       images,
       in_stock: input.inStock ?? true,
     })
@@ -429,6 +430,7 @@ export async function updateStoredProduct(
   if (updates.price !== undefined) payload.price = updates.price;
   if (updates.shortDescription !== undefined) payload.short_description = updates.shortDescription;
   if (updates.material !== undefined) payload.material = updates.material;
+  if (updates.sizes !== undefined) payload.sizes = updates.sizes;
   if (updates.images !== undefined) payload.images = updates.images;
   else if (updates.imageUrl !== undefined) payload.images = updates.imageUrl ? [updates.imageUrl] : [];
   if (updates.inStock !== undefined) payload.in_stock = updates.inStock;
